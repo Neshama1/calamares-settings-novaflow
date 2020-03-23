@@ -1,4 +1,3 @@
-import io.calamares.module 1.0
 import io.calamares.ui 1.0
 
 import QtQuick 2.10
@@ -32,7 +31,7 @@ ResponsiveBase
 			width: Math.min(parent.width, 500)
 			height: Math.min(contentHeight, 500)
 			currentIndex: model.currentIndex
-			model: Locale.regionModel
+			model: Localeq.regionModel
 
 			delegate: ListItemDelegate
 			{
@@ -68,7 +67,7 @@ ResponsiveBase
 		Item
 		{
 			property string title: qsTr("Timezone")
-			property string subtitle: Locale.prettyStatus
+			property string subtitle: Localeq.prettyStatus
 			property string message: ""
 			ListViewTemplate
 			{
@@ -77,7 +76,7 @@ ResponsiveBase
 				width: Math.min(parent.width, 500)
 				height: Math.min(contentHeight, 500)
 				currentIndex: model.currentIndex
-				model: Locale.zonesModel
+				model: Localeq.zonesModel
 
 				delegate: ListItemDelegate
 				{

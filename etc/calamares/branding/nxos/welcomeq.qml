@@ -35,7 +35,7 @@ ResponsiveBase
 	{
 		property string title: "Welcome to " + Branding.string(Branding.ProductName) + " " + Branding.string(Branding.Version)
 		property string subtitle: Welcome.genericWelcomeMessage
-		property string message: Welcome.requirementsModel.satisfiedRequirements ? "All requierements have been satisfied" : Welcome.warningMessage
+		property string message: Welcome.requirementsModel.satisfiedRequirements ? "All requierements have been satisfied" : Welcome.requirementsModel.warningMessage
 
 		ColumnLayout
 		{
