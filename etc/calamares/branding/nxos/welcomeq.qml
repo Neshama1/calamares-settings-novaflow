@@ -1,4 +1,3 @@
-import io.calamares.module 1.0
 import io.calamares.ui 1.0
 
 import QtQuick 2.10
