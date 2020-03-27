@@ -49,7 +49,7 @@ ResponsiveBase
 				}
 			}
 
-			model: Keyboard.keyboardModelsModel
+			model: config.keyboardModelsModel
 
 			delegate: ListItemDelegate
 			{
@@ -72,7 +72,7 @@ ResponsiveBase
 		Item
 		{
 			property string title: qsTr("Keyboard Layout")
-			property string subtitle: Keyboard.prettyStatus
+			property string subtitle: config.prettyStatus
 
 			ListViewTemplate
 			{
@@ -106,7 +106,7 @@ ResponsiveBase
 					}
 				}
 
-				model: Keyboard.keyboardLayoutsModel
+				model: config.keyboardLayoutsModel
 
 				delegate: ListItemDelegate
 				{
@@ -132,7 +132,7 @@ ResponsiveBase
 		Item
 		{
 			property string title: qsTr("Keyboard Layout")
-			property string subtitle: Keyboard.prettyStatus
+			property string subtitle: config.prettyStatus
 
 			ListViewTemplate
 			{
@@ -161,7 +161,7 @@ ResponsiveBase
 					}
 				}
 
-				model: Keyboard.keyboardVariantsModel
+				model: config.keyboardVariantsModel
 
 				delegate: ListItemDelegate
 				{

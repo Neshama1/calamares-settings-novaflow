@@ -12,11 +12,11 @@ ResponsiveBase
 {
 	id: control
 
-// 	nextButton.enabled:  Users.isNextEnabled
+// 	nextButton.enabled:  config.isNextEnabled
 
 	title: qsTr("Users")
 	subtitle: qsTr("Pick your user name and credentials to login and perform admin tasks")
-	message: Users.status.message
+	message: config.status.message
 
 	Kirigami.Theme.textColor: "white"
 
@@ -58,13 +58,13 @@ ResponsiveBase
 						id: _userNameField
 						width: parent.width
 						placeholderText: qsTr("Your Full Name")
-						onTextChanged:  Users.onFullNameTextEdited(text)
+						onTextChanged:  config.onFullNameTextEdited(text)
 						background: Rectangle
 						{
-							color:  Kirigami.Theme.backgroundColor
+							color: Kirigami.Theme.backgroundColor
 							radius: 5
 							opacity: 0.5
-							border.color:  Users.fullNameReady ? Kirigami.Theme.backgroundColor : Kirigami.Theme.negativeTextColor
+							border.color: config.fullNameReady ? Kirigami.Theme.backgroundColor : Kirigami.Theme.negativeTextColor
 
 						}
 					}
@@ -85,14 +85,14 @@ ResponsiveBase
 					{
 						width: parent.width
 						placeholderText: qsTr("login")
-						text:  Users.userName
-						onTextEdited:  Users.onUsernameTextEdited(text)
+						text: config.userName
+						onTextEdited: config.onUsernameTextEdited(text)
 						background: Rectangle
 						{
 							color:  Kirigami.Theme.backgroundColor
 							radius: 5
 							opacity: 0.5
-							border.color:  Users.userNameReady ? Kirigami.Theme.backgroundColor : Kirigami.Theme.negativeTextColor
+							border.color: config.userNameReady ? Kirigami.Theme.backgroundColor : Kirigami.Theme.negativeTextColor
 
 						}
 					}
@@ -113,21 +113,21 @@ ResponsiveBase
 					{
 						width: parent.width
 						placeholderText: qsTr("Computer Name")
-						text:  Users.hostName
-						onTextEdited:  Users.onHostnameTextEdited(text)
+						text: config.hostName
+						onTextEdited: config.onHostnameTextEdited(text)
 						background: Rectangle
 						{
 							color:  Kirigami.Theme.backgroundColor
 							radius: 5
 							opacity: 0.5
-							border.color:  Users.hostNameReady ? Kirigami.Theme.backgroundColor : Kirigami.Theme.negativeTextColor
+							border.color:  config.hostNameReady ? Kirigami.Theme.backgroundColor : Kirigami.Theme.negativeTextColor
 						}
 					}
 				}
 
 				Column
 				{
-					visible: ! Users.resusePassword
+					visible: !config.resusePassword
 					Layout.fillWidth: true
 					spacing: Kirigami.Units.smallSpacing
 
@@ -145,14 +145,14 @@ ResponsiveBase
 						echoMode: TextInput.Password
 						passwordMaskDelay: 300
 						inputMethodHints: Qt.ImhNoAutoUppercase
-						onTextChanged:  Users.onRootPasswordTextChanged(text, _verificationRootPasswordField.text)
+						onTextChanged: config.onRootPasswordTextChanged(text, _verificationRootPasswordField.text)
 
 						background: Rectangle
 						{
 							color:  Kirigami.Theme.backgroundColor
 							radius: 5
 							opacity: 0.5
-							border.color:  Users.rootPasswordReady ? Kirigami.Theme.backgroundColor : Kirigami.Theme.negativeTextColor
+							border.color: config.rootPasswordReady ? Kirigami.Theme.backgroundColor : Kirigami.Theme.negativeTextColor
 
 						}
 					}
@@ -165,14 +165,14 @@ ResponsiveBase
 						echoMode: TextInput.Password
 						passwordMaskDelay: 300
 						inputMethodHints: Qt.ImhNoAutoUppercase
-						onTextChanged:  Users.onPasswordTextChanged(_rootPasswordField.text, text)
+						onTextChanged: config.onPasswordTextChanged(_rootPasswordField.text, text)
 
 						background: Rectangle
 						{
 							color:  Kirigami.Theme.backgroundColor
 							radius: 5
 							opacity: 0.5
-							border.color:  Users.rootPasswordReady ? Kirigami.Theme.backgroundColor : Kirigami.Theme.negativeTextColor
+							border.color: config.rootPasswordReady ? Kirigami.Theme.backgroundColor : Kirigami.Theme.negativeTextColor
 						}
 					}
 				}
@@ -196,14 +196,14 @@ ResponsiveBase
 						echoMode: TextInput.Password
 						passwordMaskDelay: 300
 						inputMethodHints: Qt.ImhNoAutoUppercase
-						onTextChanged:  Users.onPasswordTextChanged(text, _verificationPasswordField.text)
+						onTextChanged: config.onPasswordTextChanged(text, _verificationPasswordField.text)
 
 						background: Rectangle
 						{
 							color:  Kirigami.Theme.backgroundColor
 							radius: 5
 							opacity: 0.5
-							border.color:  Users.passwordReady ? Kirigami.Theme.backgroundColor : Kirigami.Theme.negativeTextColor
+							border.color: config.passwordReady ? Kirigami.Theme.backgroundColor : Kirigami.Theme.negativeTextColor
 						}
 					}
 
@@ -215,41 +215,41 @@ ResponsiveBase
 						echoMode: TextInput.Password
 						passwordMaskDelay: 300
 						inputMethodHints: Qt.ImhNoAutoUppercase
-						onTextChanged:  Users.onPasswordTextChanged(_passwordField.text, text)
+						onTextChanged: config.onPasswordTextChanged(_passwordField.text, text)
 
 						background: Rectangle
 						{
 							color:  Kirigami.Theme.backgroundColor
 							radius: 5
 							opacity: 0.5
-							border.color:  Users.passwordReady ? Kirigami.Theme.backgroundColor : Kirigami.Theme.negativeTextColor
+							border.color: config.passwordReady ? Kirigami.Theme.backgroundColor : Kirigami.Theme.negativeTextColor
 
 						}
 					}
 				}
 				CheckBox
 				{
-					visible:  Users.validatePasswordsVisible
+					visible: config.validatePasswordsVisible
 					text: qsTr("Validate passwords quality")
-					checked:  Users.validatePasswords
-					onToggled:   Users.validatePasswords = ! Users.validatePasswords
+					checked: config.validatePasswords
+					onToggled:  config.validatePasswords = !config.validatePasswords
 				}
 
 
 				CheckBox
 				{
-					visible:  Users.resusePasswordVisible
+					visible: config.resusePasswordVisible
 					text: qsTr("Reuse user password as root password")
-					checked:  Users.resusePassword
-					onToggled:   Users.resusePassword = ! Users.resusePassword
+					checked: config.resusePassword
+					onToggled: config.resusePassword = !config.resusePassword
 				}
 
 
 				CheckBox
 				{
 					text: qsTr("Log in automatically withouth asking for the password")
-					checked:  Users.autologin
-					onToggled:   Users.autologin = ! Users.autologin
+					checked: config.autologin
+					onToggled: config.autologin = !config.autologin
 				}
 			}
 		}

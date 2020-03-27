@@ -34,8 +34,8 @@ ResponsiveBase
 	stackView.initialItem: Item
 	{
 		property string title: "Welcome to " + Branding.string(Branding.ProductName) + " " + Branding.string(Branding.Version)
-		property string subtitle: Welcome.genericWelcomeMessage
-		property string message: Welcome.requirementsModel.satisfiedRequirements ? "All requierements have been satisfied" : Welcome.requirementsModel.warningMessage
+		property string subtitle: config.genericWelcomeMessage
+		property string message: config.requirementsModel.satisfiedRequirements ? "All requierements have been satisfied" : config.requirementsModel.warningMessage
 
 		ColumnLayout
 		{
@@ -58,7 +58,7 @@ ResponsiveBase
 					opacity: 0.5
 				}
 
-				model: Welcome.requirementsModel
+				model: config.requirementsModel
 
 				delegate: ItemDelegate
 				{
@@ -188,7 +188,7 @@ ResponsiveBase
 					text: qsTr("Language")
 					icon.name: "go-previous"
 					onClicked: control.stackView.push(_langComponent)
-// 					enabled: Welcome.requirementsModel.satisfiedRequirements
+// 					enabled: config.requirementsModel.satisfiedRequirements
 					enabled: true
 				}
 			}
@@ -216,9 +216,9 @@ ResponsiveBase
 					Layout.fillWidth: true
 					implicitHeight: Math.min(contentHeight, 500)
 
-					currentIndex: Welcome.localeIndex
+					currentIndex: config.localeIndex
 
-					model: Welcome.languagesModel
+					model: config.languagesModel
 
 					delegate: ListItemDelegate
 					{
@@ -226,7 +226,7 @@ ResponsiveBase
 						label1.text: model.label
 						label2.text: model.englishLabel
 
-						onClicked: Welcome.localeIndex = index
+						onClicked: config.localeIndex = index
 					}
 				}
 
