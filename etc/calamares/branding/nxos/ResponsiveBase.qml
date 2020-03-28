@@ -4,6 +4,7 @@ import QtQuick.Layouts 1.3
 import org.kde.kirigami 2.7 as Kirigami
 import QtGraphicalEffects 1.0
 import io.calamares.ui 1.0
+import io.calamares.core 1.0
 
 Page
 {
@@ -52,6 +53,86 @@ Page
 				cached: true
 			}
 		}
+		
+		header: Item
+		{
+            width: parent.width
+            height: 200    
+            
+            RowLayout
+            {
+                height: 100
+                width: parent.width * 0.8
+                anchors.centerIn: parent
+                spacing: 0
+                Repeater
+                {
+                    id: _viewManagerRepeater
+                    model: ViewManager
+                    
+                   
+                        ColumnLayout
+                        {             
+                            id: _managerLayout
+                            Layout.fillWidth: true
+                            Layout.fillHeight: true
+                            
+                            RowLayout
+                            {
+                                Layout.fillWidth: true
+                                Layout.fillHeight: true
+                                spacing: 0
+                                
+                                Rectangle
+                                {
+                                    Layout.alignment: Qt.AlignCenter
+                                    Layout.fillWidth: true
+                                    Layout.preferredHeight: 4
+                                    anchors.verticalCenter: parent.verticalCenter
+                                    color: index !== 0 ? "white" : "transparent"
+                                }
+                                
+                                Rectangle
+                                {
+                                    id: _bgCheck
+                                    Layout.alignment: Qt.AlignCenter
+                                    Layout.preferredWidth: 22
+                                    Layout.preferredHeight: 22
+                                    radius: height
+                                    border.color: completed ? "green" : "white"
+                                    color: "transparent"
+                                }
+                                
+                                Rectangle
+                                {
+                                    Layout.alignment: Qt.AlignCenter
+                                    Layout.fillWidth: true
+                                    Layout.preferredHeight: 4
+                                    anchors.verticalCenter: parent.verticalCenter
+                                    color: index !== _viewManagerRepeater.count-1 ? "white" : "transparent"
+                                }
+                                
+                           }
+                            
+                            
+                            Label
+                            {
+                                text: display
+                                horizontalAlignment: Qt.AlignHCenter
+                                Layout.fillWidth: true
+                                Layout.alignment: Qt.AlignCenter
+                                color: "white"
+                                font.bold: true
+                                //                             font.weigth: Font.Bold
+                            }
+                        }
+                    
+                    
+                }   
+                
+            }
+            
+        }
 
 		ColumnLayout
 		{
