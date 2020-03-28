@@ -31,7 +31,7 @@ ResponsiveBase
 			width: Math.min(parent.width, 500)
 			height: Math.min(contentHeight, 500)
 			currentIndex: model.currentIndex
-			model: Localeq.regionModel
+			model: config.regionModel
 
 			delegate: ListItemDelegate
 			{
@@ -67,7 +67,7 @@ ResponsiveBase
 		Item
 		{
 			property string title: qsTr("Timezone")
-			property string subtitle: Localeq.prettyStatus
+			property string subtitle: config.prettyStatus
 			property string message: ""
 			ListViewTemplate
 			{
@@ -76,7 +76,7 @@ ResponsiveBase
 				width: Math.min(parent.width, 500)
 				height: Math.min(contentHeight, 500)
 				currentIndex: model.currentIndex
-				model: Localeq.zonesModel
+				model: config.zonesModel
 
 				delegate: ListItemDelegate
 				{
