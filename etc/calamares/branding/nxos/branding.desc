@@ -47,4 +47,4 @@ style:
    sidebarTextSelect:    "#FFFFFF"
    sidebarTextHighlight: "#26C6DA"
    
-sidebar:                qml
+sidebar:                none

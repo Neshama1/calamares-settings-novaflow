@@ -54,7 +54,7 @@ Page
 			}
 		}
 		
-		header: Item
+		footer: Item
 		{
             width: parent.width
             height: 200    
@@ -68,8 +68,7 @@ Page
                 Repeater
                 {
                     id: _viewManagerRepeater
-                    model: ViewManager
-                    
+                    model: ViewManager  
                    
                         ColumnLayout
                         {             
@@ -89,7 +88,7 @@ Page
                                     Layout.fillWidth: true
                                     Layout.preferredHeight: 4
                                     anchors.verticalCenter: parent.verticalCenter
-                                    color: index !== 0 ? "white" : "transparent"
+                                    color: index !== 0 ? (ViewManager.currentStepIndex >= index ? Kirigami.Theme.highlightColor : "white") : "transparent"
                                 }
                                 
                                 Rectangle
@@ -99,8 +98,11 @@ Page
                                     Layout.preferredWidth: 22
                                     Layout.preferredHeight: 22
                                     radius: height
-                                    border.color: completed ? "green" : "white"
-                                    color: "transparent"
+                                    border.color: ViewManager.currentStepIndex === index ? "white" : (ViewManager.currentStepIndex >= index ? Kirigami.Theme.highlightColor : "white") 
+                                    border.width: 4
+                                    color: ViewManager.currentStepIndex >= index ? Kirigami.Theme.highlightColor : "transparent"
+                                    
+                                    
                                 }
                                 
                                 Rectangle
@@ -109,7 +111,7 @@ Page
                                     Layout.fillWidth: true
                                     Layout.preferredHeight: 4
                                     anchors.verticalCenter: parent.verticalCenter
-                                    color: index !== _viewManagerRepeater.count-1 ? "white" : "transparent"
+                                    color: index !== _viewManagerRepeater.count-1 ? (ViewManager.currentStepIndex >= index ? Kirigami.Theme.highlightColor : "white") : "transparent"
                                 }
                                 
                            }
