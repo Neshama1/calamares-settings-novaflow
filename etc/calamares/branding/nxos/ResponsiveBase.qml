@@ -54,10 +54,66 @@ Page
 			}
 		}
 		
-		footer: Item
+		ColumnLayout
 		{
-            width: parent.width
-            height: 200    
+			id: _content
+
+			anchors.fill: parent
+			spacing:  Kirigami.Units.largeSpacing * 5
+			anchors.margins: Kirigami.Units.largeSpacing * 5
+
+			Label
+			{
+				Layout.fillWidth: true
+				Layout.preferredHeight: Math.min(implicitHeight, 200)
+				horizontalAlignment: Qt.AlignHCenter
+				wrapMode: Text.NoWrap
+				elide: Text.ElideMiddle
+				text: control.title
+				color: "white"
+				font.bold: true
+				font.weight: Font.Bold
+				font.pointSize: 24
+			}
+
+			Label
+			{
+				Layout.fillWidth: true
+				Layout.preferredHeight: Math.min(implicitHeight, 200)
+				horizontalAlignment: Qt.AlignHCenter
+				wrapMode: Text.Wrap
+				elide: Text.ElideMiddle
+				text: control.subtitle
+				color: "white"
+				font.weight: Font.Light
+				font.pointSize: 12
+			}
+
+			Label
+			{
+				Layout.fillWidth: true
+				Layout.preferredHeight: Math.min(implicitHeight, 200)
+				horizontalAlignment: Qt.AlignHCenter
+				wrapMode: Text.Wrap
+				elide: Text.ElideMiddle
+				text: control.message
+				color: "white"
+				font.weight: Font.Light
+				font.pointSize: 10
+			}
+
+			StackView
+			{
+				id: _stackView
+				Layout.fillHeight: true
+				Layout.preferredWidth: parent.width
+				clip: true
+			}
+			
+			Item
+		{
+            Layout.fillWidth: true
+            Layout.preferredHeight: 200 
             
             RowLayout
             {
@@ -129,105 +185,70 @@ Page
                             }
                         }
                     
-                    
-                }   
-                
-            }
-            
+                }
+            }            
         }
-
-		ColumnLayout
-		{
-			id: _content
-
-			anchors.fill: parent
-			spacing:  Kirigami.Units.largeSpacing * 5
-			anchors.margins: Kirigami.Units.largeSpacing * 5
-
-			Label
-			{
-				Layout.fillWidth: true
-				Layout.preferredHeight: Math.min(implicitHeight, 200)
-				horizontalAlignment: Qt.AlignHCenter
-				wrapMode: Text.NoWrap
-				elide: Text.ElideMiddle
-				text: control.title
-				color: "white"
-				font.bold: true
-				font.weight: Font.Bold
-				font.pointSize: 24
-			}
-
-			Label
-			{
-				Layout.fillWidth: true
-				Layout.preferredHeight: Math.min(implicitHeight, 200)
-				horizontalAlignment: Qt.AlignHCenter
-				wrapMode: Text.Wrap
-				elide: Text.ElideMiddle
-				text: control.subtitle
-				color: "white"
-				font.weight: Font.Light
-				font.pointSize: 12
-			}
-
-			Label
-			{
-				Layout.fillWidth: true
-				Layout.preferredHeight: Math.min(implicitHeight, 200)
-				horizontalAlignment: Qt.AlignHCenter
-				wrapMode: Text.Wrap
-				elide: Text.ElideMiddle
-				text: control.message
-				color: "white"
-				font.weight: Font.Light
-				font.pointSize: 10
-			}
-
-			StackView
-			{
-				id: _stackView
-				Layout.fillHeight: true
-				Layout.preferredWidth: parent.width
-				clip: true
-			}
 		}
 
-// 		footer: Item
-// 		{
-// 			height: 100
-// 			width: parent.width
-// 			Kirigami.Theme.backgroundColor: "#fafafa"
-// 			Kirigami.Theme.textColor: "#333"
-//
-// 			Row
-// 			{
-// 				spacing: Kirigami.Units.largeSpacing
-// 				anchors.centerIn: parent
-//
-// 				Button
-// 				{
-// 					id: _backButton
-// 					text: qsTr("Back")
-// 									enabled: _locale.isNextEnabled
-// 					onClicked: control.backClicked()
-// 					height: implicitHeight
-// 					Kirigami.Theme.backgroundColor: Qt.rgba(Kirigami.Theme.backgroundColor.r, Kirigami.Theme.backgroundColor.g, Kirigami.Theme.backgroundColor.b, 0.4)
-// 					Kirigami.Theme.textColor: "#fff"
-//
-// 				}
-//
-// 				Button
-// 				{
-// 					id: _nextButton
-// 					text: qsTr("Next")
-// 									enabled: _locale.isNextEnabled
-// 								width: _requirementsList.width
-// 					onClicked: control.nextClicked()
-// 					height: implicitHeight
-// 					Kirigami.Theme.backgroundColor: Qt.rgba(Kirigami.Theme.backgroundColor.r, Kirigami.Theme.backgroundColor.g, Kirigami.Theme.backgroundColor.b, 0.4)
-// 					Kirigami.Theme.textColor: "#fff"
-// 				}
-// 			}
-// 		}
+		footer: Item
+		{
+			height: 100
+			width: parent.width
+			Kirigami.Theme.backgroundColor: "#fafafa"
+			Kirigami.Theme.textColor: "#333"
+
+			Row
+			{
+				spacing: Kirigami.Units.largeSpacing
+				anchors.centerIn: parent
+		
+        Button
+        {
+           
+            text: ViewManager.quitLabel;
+            icon.name: ViewManager.quitIcon;
+
+            ToolTip.visible: hovered
+            ToolTip.timeout: 5000
+            ToolTip.delay: 1000
+            ToolTip.text: ViewManager.quitTooltip;
+
+            enabled: ViewManager.quitEnabled;
+            visible: ViewManager.quitVisible;
+            onClicked: { ViewManager.quit(); }
+        }        
+        
+        Button
+        {
+            id: _backButton
+            text: ViewManager.backLabel;
+            icon.name: ViewManager.backIcon;
+            
+            enabled: ViewManager.backEnabled;
+            visible: true;
+            onClicked: { ViewManager.back(); }
+            
+            height: implicitHeight
+            Kirigami.Theme.backgroundColor: Qt.rgba(Kirigami.Theme.backgroundColor.r, Kirigami.Theme.backgroundColor.g, Kirigami.Theme.backgroundColor.b, 0.4)
+            Kirigami.Theme.textColor: "#fff"
+            
+        }
+        
+        Button
+        {
+            id: _nextButton
+            
+            height: implicitHeight
+
+            text: ViewManager.nextLabel;
+            icon.name: ViewManager.nextIcon;
+            
+            enabled: ViewManager.nextEnabled;
+            visible: true;
+            onClicked: { ViewManager.next(); }
+            Kirigami.Theme.backgroundColor: Qt.rgba(Kirigami.Theme.backgroundColor.r, Kirigami.Theme.backgroundColor.g, Kirigami.Theme.backgroundColor.b, 0.4)
+            Kirigami.Theme.textColor: "#fff"
+        }
+            }
+		}
 }
