@@ -187,13 +187,15 @@ ResponsiveBase
 		Layout.fillWidth: true
 		Layout.alignment: Qt.AlignCenter
 
-		background: Rectangle
+		background:Rectangle
 		{
-			color: Kirigami.Theme.backgroundColor
-			radius: 5
-			opacity: 0.3
-		}
-	}
+            z: parent.z - 1
+            anchors.fill: parent
+            color: control.Kirigami.Theme.backgroundColor
+            radius: 5
+            opacity: 0.5
+        }
+    }
 
 
 }

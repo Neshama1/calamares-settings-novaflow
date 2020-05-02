@@ -61,7 +61,8 @@ Page
 			anchors.fill: parent
 			spacing:  Kirigami.Units.largeSpacing * 5
 			anchors.margins: Kirigami.Units.largeSpacing * 5
-
+            anchors.bottomMargin: 220
+            
 			Label
 			{
 				Layout.fillWidth: true
@@ -108,12 +109,15 @@ Page
 				Layout.fillHeight: true
 				Layout.preferredWidth: parent.width
 				clip: true
-			}
+			}	
 			
-			Item
+		}
+
+		Item
 		{
-            Layout.fillWidth: true
-            Layout.preferredHeight: 200 
+            width: parent.width
+           height: 200 
+           anchors.bottom: parent.bottom
             
             RowLayout
             {
@@ -188,8 +192,7 @@ Page
                 }
             }            
         }
-		}
-
+		
 		footer: Item
 		{
 			height: 100
