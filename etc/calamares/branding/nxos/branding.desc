@@ -32,6 +32,7 @@ images:
     productWallpaper:    "calamares_wallpaper.jpg"
 
 slideshow:               "show.qml"
+slideshowAPI:	      1	
 
 # Colors for text and background components.
 #

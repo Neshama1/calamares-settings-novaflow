@@ -83,11 +83,10 @@ ResponsiveBase
                 Layout.preferredHeight: 64
                 visible: config.eraseOption.visible
                 enabled: config.eraseOption.enabled
-                
                 onClicked:
                 {
 //                     config.installChoice = 2
-                    config.eraseOption.checked = true
+                    config.eraseOption.checked = !config.eraseOption.checked 
                 }
                 
                 background: Rectangle
@@ -104,7 +103,7 @@ ResponsiveBase
                     iconSizeHint: 32
                     checkable: false
                     checked: config.eraseOption.checked
-                    
+
                     label1.text: config.eraseOption.label
                     label2.text: config.eraseOption.message
                     label2.wrapMode: Text.WrapAnyWhere
@@ -154,9 +153,10 @@ ResponsiveBase
                 
                 onClicked:
                 {
-//                     config.installChoice = 2
                     config.replaceOption.checked = true
                 }
+
+onToggled:  config.replaceOption.checked 
                 
                 background: Rectangle
                 {
@@ -188,7 +188,6 @@ ResponsiveBase
                 
                 onClicked:
                 {
-//                     config.installChoice = 2
                     config.somethingElseOption.checked = true
                 }
                 

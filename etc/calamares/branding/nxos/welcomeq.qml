@@ -35,7 +35,8 @@ ResponsiveBase
 	{
 		property string title: "Welcome to " + Branding.string(Branding.ProductName) + " " + Branding.string(Branding.Version)
 		property string subtitle: config.genericWelcomeMessage
-		property string message: config.requirementsModel.satisfiedRequirements ? "All requierements have been satisfied" : config.requirementsModel.warningMessage
+		property string message: config.requirementsModel.satisfiedRequirements ? "All requierements have been satisfied" :  qsTr("<p>This computer does not satisfy some of the recommended requirements for setting up %1.<br/>
+        Setup can continue, but some features might be disabled.</p>").arg(Branding.string(Branding.VersionedName))
 
 		ColumnLayout
 		{
@@ -47,7 +48,7 @@ ResponsiveBase
 			{
 				id: _requirementsList
 				Layout.fillWidth: true
-				implicitHeight: Math.min(contentHeight, 500)
+				Layout.preferredHeight: Math.min(contentHeight, 500)
 
 				Rectangle
 				{
