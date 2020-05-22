@@ -87,6 +87,7 @@ ResponsiveBase
                 {
 //                     config.installChoice = 2
                     config.eraseOption.checked = !config.eraseOption.checked 
+		_eraseToggle.checked =  config.eraseOption.checked
                 }
                 
                 background: Rectangle
@@ -97,13 +98,18 @@ ResponsiveBase
                 }
                 
                 Maui.ListItemTemplate
-                {                    
+                {
+id: _eraseToggle                    
                     anchors.fill: parent
                     iconSource: "drive-harddisk"
                     iconSizeHint: 32
                     checkable: false
                     checked: config.eraseOption.checked
-
+		onToggled: 
+{
+config.eraseOption.checked = state
+checked = config.eraseOption.checked
+}		
                     label1.text: config.eraseOption.label
                     label2.text: config.eraseOption.message
                     label2.wrapMode: Text.WrapAnyWhere
