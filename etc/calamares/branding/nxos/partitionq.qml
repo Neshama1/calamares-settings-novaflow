@@ -11,8 +11,7 @@ import "."
 
 ResponsiveBase
 {
-    id: control
-    
+    id: control   
     
     title: "Install"
     subtitle: qsTr("Pick where to install the OS or choose a manual partition")
@@ -57,19 +56,25 @@ ResponsiveBase
                         width: 150
                         anchors.verticalCenter: parent.verticalCenter
                         isCurrentItem: ListView.isCurrentItem
+readonly property int index_ : index
                         
                         Maui.GridItemTemplate
                         {
+id: _diskOpt
                             anchors.fill: parent
                             iconSizeHint: 64
                             iconSource: "drive-harddisk"
                             label1.text: model.name
+			Kirigami.Theme.textColor: "white"
                             //                         checkable: true
                             checked: index === _listView.model.currentIndex
-                            
+                            onCheckedChanged: 
+{
+_listView.model.currentIndex = checked ? index_ : -1
+}
                         }  
                         
-                        onClicked: _listView.model.currentIndex = index
+                        onClicked: _diskOpt.checked = !_diskOpt.checked
                         
                     }            
                     background: Item {}
@@ -101,7 +106,7 @@ ResponsiveBase
                 {
 id: _eraseToggle                    
                     anchors.fill: parent
-                    iconSource: "drive-harddisk"
+                    iconSource: config.eraseOption.icon
                     iconSizeHint: 32
                     checkable: false
                     checked: config.eraseOption.checked
@@ -218,14 +223,20 @@ onToggled:  config.replaceOption.checked
                 }
             }
             
-            Item
+            ColumnLayout
             {
                 Layout.fillWidth: true
                 Layout.preferredHeight: 100
+
+		Label
+{
+text: qsTr(" Bootloader " )
+Layout.fillWidth: true
+}
                 
                 ComboBox
                 {
-                    width: parent.width
+                    Layout.fillWidth: true
                     model: config.bootloaders
                     textRole: "display"
                 }
@@ -275,7 +286,7 @@ onToggled:  config.replaceOption.checked
             
             ColumnLayout
             {
-                
+                visible: false
                 Layout.fillWidth: true
                 
                 Label
