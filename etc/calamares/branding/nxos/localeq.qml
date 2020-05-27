@@ -40,7 +40,7 @@ ResponsiveBase
 				onClicked:
 				{
 					_regionListView.model.currentIndex = index
-					_stackView.push(_zonesListComponent)
+					control.stackView.push(_zonesListComponent)
 				}
 			}
 
