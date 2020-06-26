@@ -23,7 +23,7 @@ ResponsiveBase
 	stackView.initialItem: Kirigami.ScrollablePage
 		{
             id: _userPage
-            implicitHeight: _userPage.contentHeight
+            implicitHeight: _formLayout.implicitHeight + 100
 			width: parent.width
 
 			padding: 0
