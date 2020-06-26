@@ -15,18 +15,14 @@ ResponsiveBase
     subtitle: stackView.currentItem.subtitle
     message: config.prettyStatus
 
-    stackView.initialItem: Item
-    {
-        id: _themesGridComponent
-        property string title: qsTr("Theme")
-        property string subtitle: qsTr("Pick your preferred theme or use the default one")
-
-        GridView
+    stackView.initialItem:   GridView
         {
+            property string title: qsTr("Theme")
+            property string subtitle: qsTr("Pick your preferred theme or use the default one")
+            
             id:_gridView
-            anchors.centerIn: parent
-            implicitWidth: Math.min(parent.width, 500)
-            implicitHeight: Math.min(contentHeight, parent.height)
+            width: parent.width
+            implicitHeight: contentHeight
             model: config.themesModel
             cellWidth: implicitWidth * 0.5
             cellHeight: cellWidth
@@ -138,6 +134,6 @@ ResponsiveBase
                     }
                 }
             }
-        }
+        
     }
 }

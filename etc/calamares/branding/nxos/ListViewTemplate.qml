@@ -1,26 +1,54 @@
-import QtQuick 2.10
-import QtQuick.Controls 2.10
+import QtQuick 2.13
+import QtQuick.Controls 2.13
 import QtQuick.Layouts 1.3
 import org.kde.kirigami 2.7 as Kirigami
 
-ListView
+Item
 {
     id: control
-
-    spacing: Kirigami.Units.smallSpacing
-    clip: true
-    boundsBehavior: Flickable.StopAtBounds
-
-    footerPositioning: ListView.OverlayFooter
-
-
-    Rectangle
-    {
-        z: parent.z - 1
-        anchors.fill: parent
-        color: Kirigami.Theme.backgroundColor
-        radius: 5
-        opacity: 0.5
-    }
-
+    property alias model : _listView.model
+    property alias delegate : _listView.delegate
+    property alias contentHeight : _listView.contentHeight
+    property alias currentIndex : _listView.currentIndex
+    property alias currentItem : _listView.currentItem
+    
+    default property alias content : _content.data
+        
+        implicitHeight: _content.implicitHeight
+        
+        ColumnLayout
+        {
+            id: _content
+            width: parent.width
+            anchors.centerIn: parent
+            
+            spacing: Kirigami.Units.largeSpacing
+            ListView
+            {
+                id: _listView
+                Layout.minimumHeight: 100
+                Layout.preferredHeight: contentHeight
+                Layout.maximumHeight:  500 
+                Layout.fillWidth: true
+                Layout.alignment: Qt.AlignCenter
+                spacing: Kirigami.Units.smallSpacing
+                clip: true
+                boundsBehavior: Flickable.StopAtBounds
+                
+                //     footerPositioning: ListView.OverlayFooter
+                
+                
+                Rectangle
+                {
+                    z: control.z - 1
+                    anchors.fill: parent
+                    color: Kirigami.Theme.backgroundColor
+                    radius: 5
+                    opacity: 0.5
+                }
+                
+            }
+        }
+        
 }
+

@@ -12,42 +12,13 @@ ResponsiveBase
 	title: stackView.currentItem.title
 	subtitle: stackView.currentItem.subtitle
 
-
-	stackView.initialItem:  Item
-	{
-		id: _keyboardModelsComponet
-
-		property string title: qsTr("Keyboard Model")
-		property string subtitle: qsTr("Pick your preferred keyboard model or use the default one based on the detected hardware")
-
-		ListViewTemplate
+	stackView.initialItem: ListViewTemplate
 		{
 			id: _keyboardModelListView
-
-			anchors.centerIn: parent
-			implicitWidth: Math.min(parent.width, 500)
-			implicitHeight: Math.min(contentHeight, 500)
-			currentIndex: model.currentIndex
-
-			header: ToolButton
-			{
-				icon.name: "view-refresh"
-				onClicked: model.refresh()
-				text: qsTr("Refresh")
-			}
-			footer: RowLayout
-			{
-				width: parent.width
-				z: 99999
-
-				Button
-				{
-					Layout.fillWidth: true
-					text: qsTr("Layouts")
-					icon.name: "go-previous"
-					onClicked: control.stackView.push(_keyboardLayoutsComponent)
-				}
-			}
+			property string title: qsTr("Keyboard Model")
+            property string subtitle: qsTr("Pick your preferred keyboard model or use the default one based on the detected hardware")
+            
+			currentIndex: model.currentIndex			
 
 			model: config.keyboardModelsModel
 
@@ -61,51 +32,39 @@ ResponsiveBase
 					control.stackView.push(_keyboardLayoutsComponent)
 				}
 			}
+			
+			Button
+			{
+                Layout.fillWidth: true
+                icon.name: "view-refresh"
+                onClicked: model.refresh()
+                text: qsTr("Refresh")
+            }
+            
+            Button
+            {
+                Layout.fillWidth: true
+                text: qsTr("Layouts")
+                icon.name: "go-previous"
+                onClicked: control.stackView.push(_keyboardLayoutsComponent)
+            }
+            
 		}
 
-	}
+	
 
 	Component
 	{
 		id: _keyboardLayoutsComponent
-
-		Item
-		{
-			property string title: qsTr("Keyboard Layout")
-			property string subtitle: config.prettyStatus
-
-			ListViewTemplate
+		
+		ListViewTemplate
 			{
 				id: _layoutsListView
-
-				anchors.centerIn: parent
-
-				implicitWidth: Math.min(parent.width, 500)
-				implicitHeight: Math.min(contentHeight, 500)
-
+				property string title: qsTr("Keyboard Layout")
+                property string subtitle: config.prettyStatus
+				
 				currentIndex: model.currentIndex
-				footer: RowLayout
-				{
-					width: parent.width
-					z: 99999
-
-					Button
-					{
-						Layout.fillWidth: true
-						icon.name: "go-previous"
-						text: qsTr("Models")
-						onClicked: control.stackView.pop()
-					}
-
-					Button
-					{
-						Layout.fillWidth: true
-						icon.name: "go-next"
-						text: qsTr("Variants")
-						onClicked: control.stackView.push(_keyboardVariantsComponent)
-					}
-				}
-
+				
 				model: config.keyboardLayoutsModel
 
 				delegate: ListItemDelegate
@@ -118,48 +77,37 @@ ResponsiveBase
 						_layoutsListView.positionViewAtIndex(index, ListView.Center)
 						control.stackView.push(_keyboardVariantsComponent)
 					}
-				}
+				}				
+				
+				Button
+				{
+                    Layout.fillWidth: true
+                    icon.name: "go-previous"
+                    text: qsTr("Models")
+                    onClicked: control.stackView.pop()
+                }
+                
+                Button
+                {
+                    Layout.fillWidth: true
+                    icon.name: "go-next"
+                    text: qsTr("Variants")
+                    onClicked: control.stackView.push(_keyboardVariantsComponent)
+                }
 			}
-		}
-
-
 	}
 
 	Component
 	{
 		id: _keyboardVariantsComponent
 
-		Item
-		{
-			property string title: qsTr("Keyboard Layout")
-			property string subtitle: config.prettyStatus
-
 			ListViewTemplate
 			{
 				id: _variantsListView
 
-				anchors.centerIn: parent
-
-				implicitWidth: Math.min(parent.width, 500)
-				implicitHeight: Math.min(contentHeight, 500)
-
-				currentIndex: model.currentIndex
-
-				footerPositioning: ListView.OverlayFooter
-
-				footer: RowLayout
-				{
-					z: 99999
-					width: parent.width
-
-					Button
-					{
-						Layout.fillWidth: true
-						text: qsTr("Layouts")
-						icon.name: "go-previous"
-						onClicked: control.stackView.pop()
-					}
-				}
+				property string title: qsTr("Keyboard Layout")
+                property string subtitle: config.prettyStatus
+                				currentIndex: model.currentIndex
 
 				model: config.keyboardVariantsModel
 
@@ -173,7 +121,14 @@ ResponsiveBase
 						_variantsListView.positionViewAtIndex(index, ListView.Center)
 					}
 				}
-			}
+				
+				Button
+				{
+                    Layout.fillWidth: true
+                    text: qsTr("Layouts")
+                    icon.name: "go-previous"
+                    onClicked: control.stackView.pop()
+                }
 		}
 
 	}
@@ -181,14 +136,14 @@ ResponsiveBase
 
 	TextField
 	{
-		placeholderText: qsTr("Test your keyboard")
-		Layout.preferredHeight: 60
-		Layout.maximumWidth:  500
-		Layout.fillWidth: true
-		Layout.alignment: Qt.AlignCenter
-
-		background:Rectangle
-		{
+        placeholderText: qsTr("Test your keyboard")
+        Layout.preferredHeight: 60
+        Layout.maximumWidth:  500
+        Layout.fillWidth: true
+        Layout.alignment: Qt.AlignCenter
+        
+        background:Rectangle
+        {
             z: parent.z - 1
             anchors.fill: parent
             color: control.Kirigami.Theme.backgroundColor
@@ -196,6 +151,6 @@ ResponsiveBase
             opacity: 0.5
         }
     }
-
+    
 
 }

@@ -20,14 +20,11 @@ ResponsiveBase
 
 	Kirigami.Theme.textColor: "white"
 
-	stackView.initialItem: Item
-	{
-		Kirigami.ScrollablePage
+	stackView.initialItem: Kirigami.ScrollablePage
 		{
-
-			height: Math.min(parent.height, contentHeight+ 200)
-			width: Math.min(parent.width, 500)
-			anchors.centerIn: parent
+            id: _userPage
+            implicitHeight: _userPage.contentHeight
+			width: parent.width
 
 			padding: 0
 			background:  Rectangle
@@ -252,7 +249,7 @@ ResponsiveBase
 					onToggled: config.autologin = !config.autologin
 				}
 			}
-		}
+		
 	}
 
 }

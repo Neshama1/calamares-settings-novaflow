@@ -19,13 +19,10 @@ ResponsiveBase
     
     Kirigami.Theme.textColor: "white"
     
-    stackView.initialItem: Item
-    {
-        ColumnLayout
+    stackView.initialItem: ColumnLayout
         {
-            height: parent.height
-            width: Math.min(parent.width, 500)   
-            anchors.centerIn: parent
+            width: parent.width
+            height: implicitHeight
             
             ItemDelegate
             {   
@@ -56,22 +53,22 @@ ResponsiveBase
                         width: 150
                         anchors.verticalCenter: parent.verticalCenter
                         isCurrentItem: ListView.isCurrentItem
-readonly property int index_ : index
+                        readonly property int index_ : index
                         
                         Maui.GridItemTemplate
                         {
-id: _diskOpt
+                            id: _diskOpt
                             anchors.fill: parent
                             iconSizeHint: 64
                             iconSource: "drive-harddisk"
                             label1.text: model.name
-			Kirigami.Theme.textColor: "white"
+                            Kirigami.Theme.textColor: "white"
                             //                         checkable: true
                             checked: index === _listView.model.currentIndex
                             onCheckedChanged: 
-{
-_listView.model.currentIndex = checked ? index_ : -1
-}
+                            {
+                                _listView.model.currentIndex = checked ? index_ : -1
+                            }
                         }  
                         
                         onClicked: _diskOpt.checked = !_diskOpt.checked
@@ -90,9 +87,9 @@ _listView.model.currentIndex = checked ? index_ : -1
                 enabled: config.eraseOption.enabled
                 onClicked:
                 {
-//                     config.installChoice = 2
+                    //                     config.installChoice = 2
                     config.eraseOption.checked = !config.eraseOption.checked 
-		_eraseToggle.checked =  config.eraseOption.checked
+                    _eraseToggle.checked =  config.eraseOption.checked
                 }
                 
                 background: Rectangle
@@ -104,17 +101,17 @@ _listView.model.currentIndex = checked ? index_ : -1
                 
                 Maui.ListItemTemplate
                 {
-id: _eraseToggle                    
+                    id: _eraseToggle                    
                     anchors.fill: parent
                     iconSource: config.eraseOption.icon
                     iconSizeHint: 32
                     checkable: false
                     checked: config.eraseOption.checked
-		onToggled: 
-{
-config.eraseOption.checked = state
-checked = config.eraseOption.checked
-}		
+                    onToggled: 
+                    {
+                        config.eraseOption.checked = state
+                        checked = config.eraseOption.checked
+                    }		
                     label1.text: config.eraseOption.label
                     label2.text: config.eraseOption.message
                     label2.wrapMode: Text.WrapAnyWhere
@@ -130,7 +127,7 @@ checked = config.eraseOption.checked
                 
                 onClicked:
                 {
-//                     config.installChoice = 2
+                    //                     config.installChoice = 2
                     config.alongsideOption.checked = true
                 }
                 
@@ -166,8 +163,8 @@ checked = config.eraseOption.checked
                 {
                     config.replaceOption.checked = true
                 }
-
-onToggled:  config.replaceOption.checked 
+                
+                onToggled:  config.replaceOption.checked 
                 
                 background: Rectangle
                 {
@@ -227,12 +224,12 @@ onToggled:  config.replaceOption.checked
             {
                 Layout.fillWidth: true
                 Layout.preferredHeight: 100
-
-		Label
-{
-text: qsTr(" Bootloader " )
-Layout.fillWidth: true
-}
+                
+                Label
+                {
+                    text: qsTr(" Bootloader " )
+                    Layout.fillWidth: true
+                }
                 
                 ComboBox
                 {
@@ -257,7 +254,7 @@ Layout.fillWidth: true
                 Layout.fillWidth: true              
                 enabled: config.encryptOption.enabled
                 visible: config.encryptOption.visible
-                               
+                
                 
                 CheckBox
                 {
@@ -363,5 +360,5 @@ Layout.fillWidth: true
                 
             }
         }        
-    }    
+       
 }
