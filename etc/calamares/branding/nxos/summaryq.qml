@@ -18,17 +18,12 @@ ResponsiveBase
     
     Kirigami.Theme.textColor: "white"
     
-     stackView.initialItem: Item
-    {
-        ListView
+     stackView.initialItem:  ListViewTemplate
         {
-            height: parent.height
-            width: Math.min(parent.width, 500)   
-            anchors.centerIn: parent
-            
+            width: parent.width            
             model: config.summaryModel            
            
-            delegate: ItemDelegate
+            delegate: Maui.ItemDelegate
 				{
 					id: _delegate
 
@@ -43,56 +38,16 @@ ResponsiveBase
 					width: parent.width
 					height: 48
 
-					contentItem: RowLayout
+					Maui.ListItemTemplate
 					{
-						width: parent.width
-						height: parent.height
-
-						Item
-						{
-							Layout.fillHeight: true
-							Layout.preferredWidth: height
-
-							Kirigami.Icon
-							{
-								source: "help-info"
-								height:  32
-								width: height
-								anchors.centerIn: parent
-								color: background.color
-							}
-						}
-
-						ColumnLayout
-						{
-							Layout.fillWidth: true
-							Layout.fillHeight: true
-
-							spacing: 0
-
-							Label
-							{
-								Layout.fillWidth: true
-								Layout.fillHeight: true
-								horizontalAlignment: Qt.AlignLeft
-								text: model.title
-							}
-
-							Label
-							{
-								Layout.fillWidth: true
-								Layout.fillHeight: true
-								horizontalAlignment: Qt.AlignLeft
-								text: model.message
-								opacity: isCurrentItem ? 1 : 0.7
-								font.weight: Font.Light
-							}
-						}
+                        anchors.fill: parent
+                        isCurrentItem: parent.isCurrentItem
+                        iconSource: "help-info"
+                        label1.text: model.title
+                        label2.text: model.message
 					}
-				}
-
-        }
-        
+                    
+                }        
 
     }
     
