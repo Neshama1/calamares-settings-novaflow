@@ -16,12 +16,13 @@ branches:
   only:
   - master
   - development
+  - qml
 deploy:
 - provider: script
   script: "./source/nomad-repository-util.sh upload nomad-desktop *.deb"
   skip_cleanup: true
   on:
-    branch: master
+    branch: qml
 notifications:
   email: false
   slack:
