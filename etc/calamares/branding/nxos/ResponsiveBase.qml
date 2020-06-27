@@ -9,9 +9,7 @@ import io.calamares.core 1.0
 Page
 {
     id: control
-    width: parent.width
-    height: parent.height
-    
+      
     Kirigami.Theme.backgroundColor: "#fafafa"
     Kirigami.Theme.textColor: "#333"
     

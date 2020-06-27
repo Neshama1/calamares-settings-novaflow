@@ -24,7 +24,7 @@ ResponsiveBase
             width: parent.width
             implicitHeight: contentHeight
             model: config.themesModel
-            cellWidth: implicitWidth * 0.5
+            cellWidth: width * 0.5
             cellHeight: cellWidth
 
             Rectangle

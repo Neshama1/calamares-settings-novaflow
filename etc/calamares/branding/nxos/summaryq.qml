@@ -36,15 +36,18 @@ ResponsiveBase
 					}
 
 					width: parent.width
-					height: 48
+					height: _template.height
 
 					Maui.ListItemTemplate
 					{
-                        anchors.fill: parent
+                        id: _template
+                        width: parent.width
+                        height: label1.implicitHeight + label2.implicitHeight
                         isCurrentItem: parent.isCurrentItem
                         iconSource: "help-info"
                         label1.text: model.title
                         label2.text: model.message
+                        label2.wrapMode: Text.WrapAnyWhere
 					}
                     
                 }        
