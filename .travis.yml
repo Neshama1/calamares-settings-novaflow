@@ -15,12 +15,13 @@ script:
 branches:
   only:
   - master
+  - qml-calamares
 deploy:
 - provider: script
   script: ./source/nitrux-repository-util.sh *.deb
   skip_cleanup: true
   on:
-    branch: master
+    branch: qml-calamares
 notifications:
   email: false
   slack:
