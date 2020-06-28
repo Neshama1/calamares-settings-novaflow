@@ -47,6 +47,5 @@ style:
    sidebarText:          "#FFFFFF"
    sidebarTextSelect:    "#FFFFFF"
    sidebarTextHighlight: "#26C6DA"
-   
 sidebar:                none
 navigation:             none
