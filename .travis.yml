@@ -15,7 +15,6 @@ script:
 branches:
   only:
   - master
-  - qml-calamares
 deploy:
 - provider: script
   script: ./source/nitrux-repository-util.sh *.deb

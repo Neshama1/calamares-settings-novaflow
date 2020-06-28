@@ -17,21 +17,6 @@ ResponsiveBase
     subtitle: stackView.currentItem.subtitle
     message: stackView.currentItem.message
     
-    header: Item
-    {
-        width: parent.width
-        height: 150
-        
-        Image
-        {
-            anchors.centerIn: parent
-            source: Branding.imagePath(Branding.ProductWelcome)
-            height: Math.min(100, parent.height)
-            width: height
-            sourceSize.width: width
-            sourceSize.height: height
-        }
-    }
     
     stackView.initialItem:   ListViewTemplate
     {
@@ -41,7 +26,7 @@ ResponsiveBase
         property string message: config.requirementsModel.satisfiedRequirements ? "All requierements have been satisfied" :  qsTr("<p>This computer does not satisfy some of the recommended requirements for setting up %1.<br/>
         Setup can continue, but some features might be disabled.</p>").arg(Branding.string(Branding.VersionedName))
         
-        model: config.requirementsModel
+        model: config.unsatisfiedRequirements
         
         delegate: Maui.ItemDelegate
         {

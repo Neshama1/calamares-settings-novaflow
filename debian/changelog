@@ -1,4 +1,46 @@
-calamares-qml-settings-nitrux (0.0.3) nitrux; urgency=medium
+calamares-settings-nitrux (1.1.44) nitrux; urgency=medium
+
+  * Update package.
+
+ -- Uri Herrera <uri_herrera@nxos.org>  Sat, 27 Jun 2020 22:00:00 -0500
+
+calamares-settings-nitrux (1.1.43) nitrux; urgency=medium
+
+  * Update package.
+
+ -- Uri Herrera <uri_herrera@nxos.org>  Fri, 29 May 2020 16:38:00 -0500
+ 
+calamares-settings-nitrux (1.1.42) nitrux; urgency=medium
+
+  * Update package.
+
+ -- Uri Herrera <uri_herrera@nxos.org>  Fri, 29 May 2020 11:52:00 -0500
+ 
+calamares-settings-nitrux (1.1.41) nitrux; urgency=medium
+
+  * Update package.
+
+ -- Uri Herrera <uri_herrera@nxos.org>  Fri, 27 Mar 2020 18:05:00 -0500
+
+calamares-settings-nitrux (1.1.40) nitrux; urgency=medium
+
+  * Update version number in calamares configuration.
+
+ -- Uri Herrera <uri_herrera@nxos.org>  Fri, 27 Mar 2020 18:05:00 -0500
+
+calamares-settings-nitrux (1.1.39) nitrux; urgency=medium
+
+  * Update version number in calamares configuration.
+
+ -- Uri Herrera <uri_herrera@nxos.org>  Fri, 27 Mar 2020 16:33:00 -0500
+ 
+calamares-settings-nitrux (1.1.38) nitrux; urgency=medium
+
+  * Update version number.
+
+ -- Uri Herrera <uri_herrera@nxos.org>  Sat, 01 Feb 2020 21:07:00 -0500
+
+calamares-settings-nitrux (1.1.37) nxos; urgency=medium
 
 * Update package.
 

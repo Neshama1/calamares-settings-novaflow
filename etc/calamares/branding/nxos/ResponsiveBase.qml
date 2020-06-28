@@ -18,6 +18,22 @@ Page
     
     default property alias content : _content.data
         property alias stackView: _stackView
+                
+        header: Item
+        {
+            width: parent.width
+            height: 120
+            
+            Image
+            {
+                anchors.centerIn: parent
+                source: Branding.imagePath(Branding.ProductWelcome)
+                height: Math.min(90, parent.height)
+                width: height
+                sourceSize.width: width
+                sourceSize.height: height
+            }
+        }
         
         background: Item
         {
