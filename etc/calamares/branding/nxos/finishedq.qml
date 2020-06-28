@@ -25,10 +25,14 @@ ResponsiveBase
         Layout.fillHeight: true
         Layout.fillWidth: true
         
+        
         CheckBox
         {
+            id: _checkBox
             anchors.centerIn: parent
             checked: config.restartOption.checked
+            onCheckedChanged: config.restartOption.checked = checked
+            
             visible: config.restartOption.visible
             text: config.restartOption.label
             enabled: config.restartOption.enabled
