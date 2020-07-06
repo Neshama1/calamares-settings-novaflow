@@ -1,7 +1,8 @@
 import io.calamares.ui 1.0
 
-import QtQuick 2.13
-import QtQuick.Controls 2.13
+import QtQuick 2.14
+import QtQml 2.14
+import QtQuick.Controls 2.14
 import QtQuick.Layouts 1.3
 import org.kde.kirigami 2.7 as Kirigami
 import QtGraphicalEffects 1.0
@@ -89,7 +90,6 @@ ResponsiveBase
                 {
                     //                     config.installChoice = 2
                     config.eraseOption.checked = !config.eraseOption.checked 
-                    _eraseToggle.checked =  config.eraseOption.checked
                 }
                 
                 background: Rectangle
@@ -106,11 +106,10 @@ ResponsiveBase
                     iconSource: config.eraseOption.icon
                     iconSizeHint: 32
                     checkable: false
-                    checked: config.eraseOption.checked
-                    onToggled: 
+                    Binding on checked
                     {
-                        config.eraseOption.checked = state
-                        checked = config.eraseOption.checked
+                        value: config.eraseOption.checked
+                        restoreMode: Binding.RestoreValue 
                     }		
                     label1.text: config.eraseOption.label
                     label2.text: config.eraseOption.message
@@ -144,8 +143,11 @@ ResponsiveBase
                     iconSource: "drive-harddisk"
                     iconSizeHint: 32
                     checkable: false
-                    checked: config.alongsideOption.checked
-                    
+                    Binding on checked
+                    {
+                        value: config.alongsideOption.checked
+                        restoreMode: Binding.RestoreValue 
+                    }	
                     label1.text: config.alongsideOption.label
                     label2.text: config.alongsideOption.message
                     label2.wrapMode: Text.WrapAnyWhere
@@ -164,7 +166,6 @@ ResponsiveBase
                     config.replaceOption.checked = true
                 }
                 
-                onToggled:  config.replaceOption.checked 
                 
                 background: Rectangle
                 {
@@ -179,8 +180,11 @@ ResponsiveBase
                     iconSource: "drive-harddisk"
                     iconSizeHint: 32
                     checkable: false
-                    checked: config.replaceOption.checked
-                    
+                    Binding on checked
+                    {
+                        value: config.replaceOption.checked
+                        restoreMode: Binding.RestoreValue 
+                    }	                    
                     label1.text: config.replaceOption.label
                     label2.text: config.replaceOption.message
                     label2.wrapMode: Text.WrapAnyWhere
@@ -247,6 +251,15 @@ ResponsiveBase
                 visible: config.reuseHomeOption.visible
                 checked: config.reuseHomeOption.checked
                 text: config.reuseHomeOption.label
+            }   
+                        
+            CheckBox
+            {
+                Layout.fillWidth: true                    
+                enabled: config.efiOption.enabled
+                visible: config.efiOption.visible
+                checked: config.efiOption.checked
+                text: config.efiOption.label
             }   
             
             ColumnLayout

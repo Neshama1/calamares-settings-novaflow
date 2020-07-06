@@ -42,7 +42,7 @@ ResponsiveBase
 					{
                         id: _template
                         width: parent.width
-                        height: label1.implicitHeight + label2.implicitHeight
+                        height: label1.implicitHeight + label2.implicitHeight + Maui.Style.space.huge
                         isCurrentItem: parent.isCurrentItem
                         iconSource: "help-info"
                         label1.text: model.title
