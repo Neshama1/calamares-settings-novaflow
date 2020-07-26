@@ -1,3 +1,9 @@
+calamares-qml-settings-nitrux (0.1.2) nitrux; urgency=medium
+
+* Set values to false for machineid (we don't use it) and partitionq.
+
+ -- Uri Herrera <uri_herrera@nxos.org>  Sun, 26 Jul 2020 05:01:00 -0500
+
 calamares-qml-settings-nitrux (0.1.1) nitrux; urgency=medium
 
 * Update package.
