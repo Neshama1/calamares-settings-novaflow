@@ -11,6 +11,7 @@ Item
     property alias contentHeight : _listView.contentHeight
     property alias currentIndex : _listView.currentIndex
     property alias currentItem : _listView.currentItem
+    property alias listView : _listView
     
     default property alias content : _content.data
         
@@ -26,7 +27,7 @@ Item
             ListView
             {
                 id: _listView
-                Layout.minimumHeight: 100
+                Layout.minimumHeight: 0
                 Layout.preferredHeight: contentHeight
                 Layout.maximumHeight:  500 
                 Layout.fillWidth: true

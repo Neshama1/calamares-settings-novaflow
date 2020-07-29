@@ -231,12 +231,15 @@ ResponsiveBase
                 
                 Label
                 {
-                    text: qsTr(" Bootloader " )
+                    visible: _bootloaderComboBox.visible
+                    text: qstr("Bootloader")
                     Layout.fillWidth: true
                 }
                 
                 ComboBox
                 {
+                    id: _bootloaderComboBox
+                    visible: count
                     Layout.fillWidth: true
                     model: config.bootloaders
                     textRole: "display"
@@ -253,14 +256,14 @@ ResponsiveBase
                 text: config.reuseHomeOption.label
             }   
                         
-            CheckBox
+        /*    CheckBox
             {
                 Layout.fillWidth: true                    
                 enabled: config.efiOption.enabled
                 visible: config.efiOption.visible
                 checked: config.efiOption.checked
                 text: config.efiOption.label
-            }   
+            } */  
             
             ColumnLayout
             {

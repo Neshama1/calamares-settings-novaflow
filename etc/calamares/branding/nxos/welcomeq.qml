@@ -15,10 +15,9 @@ ResponsiveBase
     
     title: stackView.currentItem.title
     subtitle: stackView.currentItem.subtitle
-    message: stackView.currentItem.message
+    message: stackView.currentItem.message    
     
-    
-    stackView.initialItem:   ListViewTemplate
+    stackView.initialItem: ListViewTemplate
     {
         id: _requirementsList
         property string title: qsTr("Welcome to ") + Branding.string(Branding.ProductName) + " " + Branding.string(Branding.Version)
