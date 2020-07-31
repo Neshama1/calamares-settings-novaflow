@@ -19,6 +19,8 @@ ResponsiveBase
     message: config.message
     
     Kirigami.Theme.textColor: "white"
+    backButton.visible: false
+    nextButton.visible: false
     
     Item
     {

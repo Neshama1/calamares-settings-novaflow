@@ -18,6 +18,9 @@ Page
     
     default property alias content : _content.data
         property alias stackView: _stackView
+        
+        property alias backButton : _backButton
+        property alias nextButton : _nextButton
                 
         header: Item
         {
