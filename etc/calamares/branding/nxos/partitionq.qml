@@ -232,7 +232,7 @@ ResponsiveBase
                 Label
                 {
                     visible: _bootloaderComboBox.visible
-                    text: qstr("Bootloader")
+                    text: qsTr("Bootloader")
                     Layout.fillWidth: true
                 }
                 
