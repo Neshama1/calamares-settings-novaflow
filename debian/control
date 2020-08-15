@@ -1,7 +1,7 @@
 Source: calamares-qml-settings-nitrux
-Section: unknown
+Section: kde
 Priority: optional
-Maintainer: Alexis López Zubieta <azubieta90@gmail.com>
+Maintainer: Camilo Higuita <milo.h@aol.com>
 Build-Depends: debhelper (>=9)
 Standards-Version: 3.9.6
 Homepage: https://nxos.org/

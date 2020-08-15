@@ -1,18 +1,19 @@
-
 dist: bionic
+
 script:
   - sudo ./travis-build.sh
 
 branches:
   only:
     - master
-    - development
+    - qml-calamares
 
 deploy:
   - provider: script
     script: wget -qO - https://raw.githubusercontent.com/Nitrux/nitrux-repository-util/master/upload-pkgs | sh -s *.deb
     skip_cleanup: true
+    on:
+      branch: qml-calamares
 
 notifications:
   email: false
-  
