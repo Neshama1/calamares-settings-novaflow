@@ -1,3 +1,9 @@
+calamares-qml-settings-nitrux (0.1.9) nitrux; urgency=medium
+
+  * Update package.
+
+ -- Uri Herrera <uri_herrera@nxos.org>  Tue, 18 Aug 2020 16:34:00 -0500
+
 calamares-qml-settings-nitrux (0.1.8) nitrux; urgency=medium
 
   * Update package.
