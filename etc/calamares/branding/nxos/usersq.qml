@@ -244,7 +244,7 @@ ResponsiveBase
 
 				CheckBox
 				{
-					text: qsTr("Log in automatically withouth asking for the password")
+					text: qsTr("Log in automatically without asking for the password")
 					checked: config.autologin
 					onToggled: config.autologin = !config.autologin
 				}

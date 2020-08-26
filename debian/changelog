@@ -1,3 +1,9 @@
+calamares-qml-settings-nitrux (0.2.1) nitrux; urgency=medium
+
+  * Fix typo in UI.
+
+ -- Uri Herrera <uri_herrera@nxos.org>  Wed, 26 Aug 2020 04:22:00 -0500
+
 calamares-qml-settings-nitrux (0.2.0) nitrux; urgency=medium
 
   * Uninstall casper packages when finished.
