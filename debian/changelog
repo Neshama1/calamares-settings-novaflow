@@ -1,3 +1,9 @@
+calamares-qml-settings-nitrux (0.2.2) nitrux; urgency=medium
+
+  * Update version number of distribution..
+
+ -- Uri Herrera <uri_herrera@nxos.org>  Fri, 28 Aug 2020 04:16:00 -0500
+
 calamares-qml-settings-nitrux (0.2.1) nitrux; urgency=medium
 
   * Fix typo in UI.
