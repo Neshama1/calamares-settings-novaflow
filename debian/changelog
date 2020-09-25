@@ -1,12 +1,18 @@
+calamares-qml-settings-nitrux (0.2.4) nitrux; urgency=medium
+
+  * Comment commands in module, we already include the package and it will fail if there's no network.
+
+ -- Uri Herrera <uri_herrera@nxos.org>  Fri, 25 Sep 2020 18:22:00 -0500
+
 calamares-qml-settings-nitrux (0.2.3) nitrux; urgency=medium
 
-  * Update version number of distribution..
+  * Update version number of distribution.
 
  -- Uri Herrera <uri_herrera@nxos.org>  Fri, 25 Sep 2020 18:21:00 -0500
 
 calamares-qml-settings-nitrux (0.2.2) nitrux; urgency=medium
 
-  * Update version number of distribution..
+  * Update version number of distribution.
 
  -- Uri Herrera <uri_herrera@nxos.org>  Fri, 28 Aug 2020 04:16:00 -0500
 
