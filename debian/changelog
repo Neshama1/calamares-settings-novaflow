@@ -1,3 +1,9 @@
+calamares-settings-nitrux (1.1.56) nitrux; urgency=medium
+
+  * Update date in slideshow SVG.
+
+ -- Uri Herrera <uri_herrera@nxos.org>  Fri, 28 May 2021 01:54:00 -0500
+
 calamares-settings-nitrux (1.1.55) nitrux; urgency=medium
 
   * Don't force Kvantum style when using desktop launcher, change version in description.
