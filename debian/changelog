@@ -1,3 +1,9 @@
+calamares-settings-nitrux (1.1.55) nitrux; urgency=medium
+
+  * Don't force Kvantum style when using desktop launcher, change version in description.
+
+ -- Uri Herrera <uri_herrera@nxos.org>  Thu, 27 May 2021 20:38:00 -0500
+
 calamares-settings-nitrux (1.1.54) nitrux; urgency=medium
 
   * Remove live user package from chroot.
