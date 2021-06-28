@@ -8,6 +8,8 @@ apt -qq -yy dist-upgrade
 apt -qq -yy install devscripts lintian build-essential automake autotools-dev
 mk-build-deps -i -t "apt-get --yes" -r
 
+ls -l
+
 ### Build Deb
 mkdir source
 mv ./* source/ # Hack for debuild
