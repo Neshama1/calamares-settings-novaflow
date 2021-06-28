@@ -1,3 +1,9 @@
+calamares-settings-nitrux (1.1.57) nitrux; urgency=medium
+
+  * Update date in slideshow SVG.
+
+ -- Uri Herrera <uri_herrera@nxos.org>  Mon, 28 Jun 2021 01:15:00 -0500
+
 calamares-settings-nitrux (1.1.56) nitrux; urgency=medium
 
   * Update date in slideshow SVG.
