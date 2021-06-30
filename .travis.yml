@@ -10,7 +10,6 @@ script:
 branches:
   only:
     - master
-    - qml-calamares
 
 deploy:
   - provider: script
